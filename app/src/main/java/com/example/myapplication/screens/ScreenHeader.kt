@@ -24,8 +24,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,21 +32,26 @@ import com.example.myapplication.R
 
 @Composable
 fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
-    Column (Modifier.background(Color(0xFF050B18))) {
+    Column(Modifier.background(Color(0xFF050B18))) {
         Image(
             painter = painterResource(id = imgHeader),
             contentDescription = "bg_header",
-            modifier = Modifier.size(340.dp),
+            modifier = Modifier.height(360.dp),
             contentScale = ContentScale.Crop,
         )
-        Row (modifier = Modifier.padding(start = 24.dp)) {
-            Box (
-                modifier = Modifier.size(80.dp).offset(y=-24.dp)
-                    .border(BorderStroke(2.dp, Color(0xFF1F2430)),
-                        shape = RoundedCornerShape(8.dp))
+        Row(modifier = Modifier.padding(start = 24.dp)) {
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .offset(y = -24.dp)
+                    .border(
+                        BorderStroke(2.dp, Color(0xFF1F2430)),
+                        shape = RoundedCornerShape(8.dp)
+                    )
                     .clip(RoundedCornerShape(8.dp))
                     .background(Color.Black),
-                contentAlignment = Alignment.Center) {
+                contentAlignment = Alignment.Center
+            ) {
                 Image(
                     painter = painterResource(id = imgLogo),
                     contentDescription = "logo",
@@ -58,7 +61,8 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
             }
             Spacer(modifier = Modifier.width(20.dp))
             Column {
-                Text(text = appName,
+                Text(
+                    text = appName,
                     style = TextStyle(
                         fontSize = 20.sp,
                         lineHeight = 26.sp,
@@ -68,13 +72,14 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
                     )
                 )
                 Spacer(modifier = Modifier.height(4.dp))
-                Row (verticalAlignment = Alignment.CenterVertically) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
                         painterResource(id = R.drawable.rating),
                         "rating"
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = "70M",
+                    Text(
+                        text = "70M",
                         style = TextStyle(
                             fontSize = 12.sp,
                             // fontFamily = FontFamily(Font(R.font.sk-modernist)),
@@ -82,7 +87,8 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
                             color = Color(0xFF45454D),
 
                             letterSpacing = 0.5.sp,
-                        ))
+                        )
+                    )
                 }
             }
         }
