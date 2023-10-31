@@ -7,10 +7,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
+import com.example.myapplication.data.Comment
 
 @Composable
 fun MainScreen() {
@@ -68,6 +71,66 @@ fun MainScreen() {
                 R.drawable.bg_video_preview2
             ),
                 contentPadding = PaddingValues(start = 24.dp, end = 24.dp))
+        }
+        item {
+            Text(
+                text = stringResource(id = R.string.review_block_name),
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
+                    color = Color(0xFFEEF2FB),
+                    letterSpacing = 0.6.sp,
+                ),
+                modifier = Modifier.padding(
+                    start = 24.dp,
+                    end = 24.dp,
+                    top = 20.dp,
+                    bottom = 12.dp
+                )
+            )
+        }
+        item {
+            RatingBlock(rating = 4.9f, reviewsCount = "70M",
+                modifier = Modifier.padding(
+                    start = 24.dp,
+                    end = 24.dp,
+                    bottom = 12.dp
+                ))
+        }
+        val comments = listOf(
+            Comment(
+                avatar = R.drawable.avatar_1,
+                name = "Auguste Conte",
+                date = "February 14, 2019",
+                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"),
+            Comment(
+                avatar = R.drawable.avatar_2,
+                name = "Jang Marcelino",
+                date = "February 14, 2019",
+                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”")
+        )
+        itemsIndexed(comments) { index, item ->
+            CommentBlock(
+                item,
+                modifier = Modifier.padding(
+                    start = 24.dp,
+                    end = 24.dp,
+                    top = 16.dp,
+                    bottom = 16.dp
+                )
+            )
+            if (index < comments.lastIndex) {
+                Divider(
+                    color = Color(0x11FFFFFF),
+                    thickness = 1.dp,
+                    modifier = Modifier.padding(
+                        start = 32.dp,
+                        end = 32.dp,
+                        top = 12.dp,
+                        bottom = 12.dp
+                    )
+                )
+            }
         }
         item {
             Button(

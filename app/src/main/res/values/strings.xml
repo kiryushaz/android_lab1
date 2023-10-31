@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="btn_text">Install</string>
+    <string name="review_block_name">Review &amp; Ratings</string>
 </resources>
