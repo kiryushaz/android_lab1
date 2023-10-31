@@ -1,6 +1,5 @@
 package com.example.myapplication.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,7 +17,7 @@ import com.example.myapplication.R
 
 @Composable
 fun MainScreen() {
-    LazyColumn (Modifier.background(Color(0xFF050B18))) {
+    LazyColumn {
         item {
             ScreenHeader(
                 imgHeader = R.drawable.bg_header,
@@ -44,6 +43,13 @@ fun MainScreen() {
                 ),
                 modifier = Modifier.padding(24.dp)
             )
+        }
+        item {
+            ImageRow(items = listOf(
+                R.drawable.bg_video_preview1,
+                R.drawable.bg_video_preview2
+            ),
+                modifier = Modifier.padding(start = 24.dp))
         }
     }
 }
