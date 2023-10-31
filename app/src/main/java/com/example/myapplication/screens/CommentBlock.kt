@@ -21,13 +21,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 import com.example.myapplication.data.Comment
+import com.example.myapplication.ui.theme.Background
+import com.example.myapplication.ui.theme.SkModernist
 
 @Composable
 fun CommentBlock(
@@ -50,7 +51,8 @@ fun CommentBlock(
                     text = comment.name,
                     style = TextStyle(
                         fontSize = 16.sp,
-                        fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
+                        fontFamily = SkModernist,
+                        fontWeight = FontWeight.Normal,
                         color = Color.White,
                         letterSpacing = 0.5.sp,
                     )
@@ -60,7 +62,8 @@ fun CommentBlock(
                     text = comment.date,
                     style = TextStyle(
                         fontSize = 12.sp,
-                        fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
+                        fontFamily = SkModernist,
+                        fontWeight = FontWeight.Normal,
                         color = Color(0x66FFFFFF),
                         letterSpacing = 0.5.sp,
                     )
@@ -73,7 +76,8 @@ fun CommentBlock(
             style = TextStyle(
                 fontSize = 12.sp,
                 lineHeight = 20.sp,
-                fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
+                fontFamily = SkModernist,
+                fontWeight = FontWeight.Normal,
                 color = Color(0xFFA8ADB7),
 
                 letterSpacing = 0.5.sp,
@@ -85,7 +89,7 @@ fun CommentBlock(
 @Preview(showBackground = true)
 @Composable
 fun CommentBlocksPreview() {
-    Surface(color = Color(0xFF050B18)) {
+    Surface(color = Background) {
         val comments = listOf(
             Comment(
                 avatar = R.drawable.avatar_1,

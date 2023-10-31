@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -25,13 +26,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
+import com.example.myapplication.ui.theme.Background
+import com.example.myapplication.ui.theme.LogoBorder
+import com.example.myapplication.ui.theme.SkModernist
 
 @Composable
 fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
@@ -39,16 +41,16 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
         Image(
             painter = painterResource(id = imgHeader),
             contentDescription = "bg_header",
-            modifier = Modifier.height(360.dp),
+            modifier = Modifier.fillMaxWidth().height(360.dp),
             contentScale = ContentScale.Crop,
         )
         Row(modifier = Modifier.padding(start = 24.dp)) {
             Box(
                 modifier = Modifier
                     .size(80.dp)
-                    .offset(y = -24.dp)
+                    .offset(y = (-24).dp)
                     .border(
-                        BorderStroke(2.dp, Color(0xFF1F2430)),
+                        BorderStroke(2.dp, LogoBorder),
                         shape = RoundedCornerShape(8.dp)
                     )
                     .clip(RoundedCornerShape(8.dp))
@@ -69,9 +71,9 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
                     style = TextStyle(
                         fontSize = 20.sp,
                         lineHeight = 26.sp,
-                        fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
-                        fontWeight = FontWeight(700),
-                        color = Color(0xFFFFFFFF),
+                        fontFamily = SkModernist,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
                         letterSpacing = 0.5.sp,
                     )
                 )
@@ -86,8 +88,8 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
                         text = "70M",
                         style = TextStyle(
                             fontSize = 12.sp,
-                            fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                            fontWeight = FontWeight(400),
+                            fontFamily = SkModernist,
+                            fontWeight = FontWeight.Normal,
                             color = Color(0xFF45454D),
 
                             letterSpacing = 0.5.sp,
@@ -102,7 +104,7 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
 @Preview(showBackground = true)
 @Composable
 fun ScreenHeaderPreview() {
-    Surface(color = Color(0xFF050B18)) {
+    Surface(color = Background) {
         ScreenHeader(
             imgHeader = R.drawable.bg_header,
             imgLogo = R.drawable.dota,

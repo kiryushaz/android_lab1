@@ -14,12 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
+import com.example.myapplication.ui.theme.Background
+import com.example.myapplication.ui.theme.SkModernist
 
 @Composable
 fun RatingBlock(
@@ -32,8 +33,9 @@ fun RatingBlock(
             text = rating.toString(),
             style = TextStyle(
                 fontSize = 48.sp,
-                fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
-                color = Color(0xFFFFFFFF)
+                fontFamily = SkModernist,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
             )
         )
         Spacer(modifier = Modifier.width(16.dp))
@@ -48,7 +50,8 @@ fun RatingBlock(
                 text = "$reviewsCount Reviews",
                 style = TextStyle(
                     fontSize = 12.sp,
-                    fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
+                    fontFamily = SkModernist,
+                    fontWeight = FontWeight.Normal,
                     color = Color(0xFFA8ADB7),
 
                     letterSpacing = 0.5.sp,
@@ -61,7 +64,7 @@ fun RatingBlock(
 @Preview(showBackground = true)
 @Composable
 fun RatingBlockPreview() {
-    Surface(color = Color(0xFF050B18)) {
+    Surface(color = Background) {
         RatingBlock(4.9f, "70M")
     }
 }

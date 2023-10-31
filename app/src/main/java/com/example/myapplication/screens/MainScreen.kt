@@ -21,14 +21,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 import com.example.myapplication.data.Comment
+import com.example.myapplication.ui.theme.Background
+import com.example.myapplication.ui.theme.ButtonColor
+import com.example.myapplication.ui.theme.SkModernist
 
 @Composable
 fun MainScreen() {
@@ -58,8 +59,8 @@ fun MainScreen() {
                 style = TextStyle(
                     fontSize = 12.sp,
                     lineHeight = 19.sp,
-                    fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                    fontWeight = FontWeight(400),
+                    fontFamily = SkModernist,
+                    fontWeight = FontWeight.Normal,
                     color = Color(0xB2EEF2FB)
                 ),
                 modifier = Modifier.padding(24.dp)
@@ -77,7 +78,8 @@ fun MainScreen() {
                 text = stringResource(id = R.string.review_block_name),
                 style = TextStyle(
                     fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
+                    fontFamily = SkModernist,
+                    fontWeight = FontWeight.Bold,
                     color = Color(0xFFEEF2FB),
                     letterSpacing = 0.6.sp,
                 ),
@@ -138,7 +140,7 @@ fun MainScreen() {
                     .padding(24.dp)
                     .height(64.dp)
                     .fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(Color(0xFFF4D144)),
+                colors = ButtonDefaults.buttonColors(ButtonColor),
                 shape = RoundedCornerShape(size = 12.dp),
                 onClick = {
                     Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show()
@@ -148,9 +150,9 @@ fun MainScreen() {
                     text = stringResource(id = R.string.btn_text),
                     style = TextStyle(
                         fontSize = 20.sp,
-                        fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                        fontWeight = FontWeight(700),
-                        color = Color(0xFF050B18),
+                        fontFamily = SkModernist,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.Black,
                         letterSpacing = 0.6.sp,
                     )
                 )
@@ -164,7 +166,7 @@ fun MainScreen() {
 fun MainScreenPreview() {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color(0xFF050B18)
+        color = Background
     ) {
         MainScreen()
     }

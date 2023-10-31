@@ -15,6 +15,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.ui.theme.Background
+import com.example.myapplication.ui.theme.Montserrat
 
 @Composable
 fun ScrollableTags(
@@ -36,7 +38,8 @@ fun ScrollableTags(
                 Text(
                     text = item,
                     style = TextStyle(
-                        fontSize = 14.sp
+                        fontSize = 12.sp,
+                        fontFamily = Montserrat
                     ),
                     modifier = Modifier.padding(
                         start = 12.dp,
@@ -53,7 +56,7 @@ fun ScrollableTags(
 @Preview(showBackground = true)
 @Composable
 fun ScrollableTagsPreview() {
-    Surface(color = Color(0xFF050B18)) {
+    Surface(color = Background) {
         ScrollableTags(
             items = listOf("MOBA", "MULTIPLAYER", "STRATEGY"),
             modifier = Modifier.padding(top = 16.dp, bottom = 16.dp),
