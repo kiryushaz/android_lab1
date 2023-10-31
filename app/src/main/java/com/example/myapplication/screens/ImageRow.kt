@@ -1,6 +1,8 @@
 package com.example.myapplication.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
@@ -15,16 +17,23 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.R
 
 @Composable
-fun ImageRow(items: List<Int>, modifier: Modifier = Modifier) {
-    LazyRow(modifier = modifier) {
+fun ImageRow(
+    items: List<Int>,
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues()
+) {
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(15.dp),
+        contentPadding = contentPadding,
+        modifier = modifier
+    ) {
         itemsIndexed(items) {
             index, item ->
 
             Image(
                 painter = painterResource(id = item),
                 contentDescription = "img$index",
-                modifier = Modifier.padding(8.dp)
-                    .height(135.dp)
+                modifier = Modifier.height(135.dp)
                     .clip(RoundedCornerShape(16.dp))
             )
         }
@@ -37,5 +46,7 @@ fun ImageRowPreview() {
     ImageRow(items = listOf(
         R.drawable.bg_video_preview1,
         R.drawable.bg_video_preview2
-    ))
+    ),
+        modifier = Modifier.padding(top = 16.dp, bottom = 16.dp),
+        contentPadding = PaddingValues(start = 24.dp, end = 24.dp))
 }
