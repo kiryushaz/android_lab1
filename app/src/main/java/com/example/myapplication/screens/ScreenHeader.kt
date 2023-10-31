@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,7 +33,7 @@ import com.example.myapplication.R
 
 @Composable
 fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
-    Column(Modifier.background(Color(0xFF050B18))) {
+    Column {
         Image(
             painter = painterResource(id = imgHeader),
             contentDescription = "bg_header",
@@ -98,9 +99,11 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
 @Preview(showBackground = true)
 @Composable
 fun ScreenHeaderPreview() {
-    ScreenHeader(
-        imgHeader = R.drawable.bg_header,
-        imgLogo = R.drawable.dota,
-        appName = "DoTA 2"
-    )
+    Surface(color = Color(0xFF050B18)) {
+        ScreenHeader(
+            imgHeader = R.drawable.bg_header,
+            imgLogo = R.drawable.dota,
+            appName = "DoTA 2"
+        )
+    }
 }

@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ScrollableTags(items: List<String>, modifier: Modifier = Modifier) {
     LazyRow (modifier = modifier) {
-        itemsIndexed(items) { index, item ->
+        itemsIndexed(items) { _, item ->
             Surface(
                 color = Color(0x3D44A9F4),
                 contentColor = Color(0xFF44A9F4),
@@ -36,5 +36,7 @@ fun ScrollableTags(items: List<String>, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun ScrollableTagsPreview() {
-    ScrollableTags(items = listOf("MOBY", "MULTIPLAYER", "STRATEGY"))
+    Surface(color = Color(0xFF050B18)) {
+        ScrollableTags(items = listOf("MOBY", "MULTIPLAYER", "STRATEGY"))
+    }
 }
