@@ -1,14 +1,26 @@
 package com.example.myapplication.screens
 
+import android.widget.Toast
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -17,7 +29,13 @@ import com.example.myapplication.R
 
 @Composable
 fun MainScreen() {
-    LazyColumn {
+    val context = LocalContext.current
+    val lazyListState = rememberLazyListState()
+    
+    LazyColumn (
+        state = lazyListState,
+        modifier = Modifier.fillMaxSize()
+    ) {
         item {
             ScreenHeader(
                 imgHeader = R.drawable.bg_header,
@@ -27,8 +45,8 @@ fun MainScreen() {
         }
         item {
             ScrollableTags(
-                items = listOf("MOBY", "MULTIPLAYER", "STRATEGY"),
-                modifier = Modifier.padding(start = 24.dp)
+                items = listOf("MOBA", "MULTIPLAYER", "STRATEGY"),
+                contentPadding = PaddingValues(start = 24.dp, end = 24.dp)
             )
         }
         item {
@@ -37,7 +55,7 @@ fun MainScreen() {
                 style = TextStyle(
                     fontSize = 12.sp,
                     lineHeight = 19.sp,
-                    // fontFamily = FontFamily(Font(R.font.sk-modernist)),
+                    fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
                     fontWeight = FontWeight(400),
                     color = Color(0xB2EEF2FB)
                 ),
@@ -49,7 +67,31 @@ fun MainScreen() {
                 R.drawable.bg_video_preview1,
                 R.drawable.bg_video_preview2
             ),
-                modifier = Modifier.padding(start = 24.dp))
+                contentPadding = PaddingValues(start = 24.dp, end = 24.dp))
+        }
+        item {
+            Button(
+                modifier = Modifier
+                    .padding(24.dp)
+                    .height(64.dp)
+                    .fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(Color(0xFFF4D144)),
+                shape = RoundedCornerShape(size = 12.dp),
+                onClick = {
+                    Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show()
+                }
+            ) {
+                Text(
+                    text = stringResource(id = R.string.btn_text),
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                        fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
+                        fontWeight = FontWeight(700),
+                        color = Color(0xFF050B18),
+                        letterSpacing = 0.6.sp,
+                    )
+                )
+            }
         }
     }
 }
