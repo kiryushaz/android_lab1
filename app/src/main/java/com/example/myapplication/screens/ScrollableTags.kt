@@ -10,13 +10,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.Background
 import com.example.myapplication.ui.theme.Montserrat
+import com.example.myapplication.ui.theme.TagColor
+import com.example.myapplication.ui.theme.TagContentColor
 
 @Composable
 fun ScrollableTags(
@@ -31,8 +32,8 @@ fun ScrollableTags(
     ) {
         itemsIndexed(items) { _, item ->
             Surface(
-                color = Color(0x3D44A9F4),
-                contentColor = Color(0xFF44A9F4),
+                color = TagColor,
+                contentColor = TagContentColor,
                 shape = CircleShape
             ) {
                 Text(
@@ -41,6 +42,7 @@ fun ScrollableTags(
                         fontSize = 12.sp,
                         fontFamily = Montserrat
                     ),
+
                     modifier = Modifier.padding(
                         start = 12.dp,
                         end = 12.dp,

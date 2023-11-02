@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 import com.example.myapplication.ui.theme.Background
 import com.example.myapplication.ui.theme.LogoBorder
+import com.example.myapplication.ui.theme.Onyx
 import com.example.myapplication.ui.theme.SkModernist
 import com.gowtham.ratingbar.RatingBar
 
@@ -98,7 +99,7 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
                             fontSize = 12.sp,
                             fontFamily = SkModernist,
                             fontWeight = FontWeight.Normal,
-                            color = Color(0xFF45454D),
+                            color = Onyx,
 
                             letterSpacing = 0.5.sp,
                         )

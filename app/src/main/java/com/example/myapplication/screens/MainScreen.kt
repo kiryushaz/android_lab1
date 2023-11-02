@@ -28,7 +28,9 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 import com.example.myapplication.data.Comment
 import com.example.myapplication.ui.theme.Background
-import com.example.myapplication.ui.theme.ButtonColor
+import com.example.myapplication.ui.theme.GhostWhite
+import com.example.myapplication.ui.theme.HorizontalLineColor
+import com.example.myapplication.ui.theme.Mustard
 import com.example.myapplication.ui.theme.SkModernist
 
 @Composable
@@ -61,7 +63,7 @@ fun MainScreen() {
                     lineHeight = 19.sp,
                     fontFamily = SkModernist,
                     fontWeight = FontWeight.Normal,
-                    color = Color(0xB2EEF2FB)
+                    color = GhostWhite
                 ),
                 modifier = Modifier.padding(24.dp)
             )
@@ -80,7 +82,7 @@ fun MainScreen() {
                     fontSize = 16.sp,
                     fontFamily = SkModernist,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFFEEF2FB),
+                    color = Color.White,
                     letterSpacing = 0.6.sp,
                 ),
                 modifier = Modifier.padding(
@@ -123,7 +125,7 @@ fun MainScreen() {
             )
             if (index < comments.lastIndex) {
                 Divider(
-                    color = Color(0x11FFFFFF),
+                    color = HorizontalLineColor,
                     thickness = 1.dp,
                     modifier = Modifier.padding(
                         start = 32.dp,
@@ -140,7 +142,7 @@ fun MainScreen() {
                     .padding(24.dp)
                     .height(64.dp)
                     .fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(ButtonColor),
+                colors = ButtonDefaults.buttonColors(Mustard),
                 shape = RoundedCornerShape(size = 12.dp),
                 onClick = {
                     Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show()
@@ -151,7 +153,7 @@ fun MainScreen() {
                     style = TextStyle(
                         fontSize = 20.sp,
                         fontFamily = SkModernist,
-                        fontWeight = FontWeight.Normal,
+                        fontWeight = FontWeight.Bold,
                         color = Color.Black,
                         letterSpacing = 0.6.sp,
                     )

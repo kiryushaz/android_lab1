@@ -28,6 +28,9 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 import com.example.myapplication.data.Comment
 import com.example.myapplication.ui.theme.Background
+import com.example.myapplication.ui.theme.FrenchGray
+import com.example.myapplication.ui.theme.GhostlyWhite
+import com.example.myapplication.ui.theme.HorizontalLineColor
 import com.example.myapplication.ui.theme.SkModernist
 
 @Composable
@@ -64,7 +67,7 @@ fun CommentBlock(
                         fontSize = 12.sp,
                         fontFamily = SkModernist,
                         fontWeight = FontWeight.Normal,
-                        color = Color(0x66FFFFFF),
+                        color = GhostlyWhite,
                         letterSpacing = 0.5.sp,
                     )
                 )
@@ -78,7 +81,7 @@ fun CommentBlock(
                 lineHeight = 20.sp,
                 fontFamily = SkModernist,
                 fontWeight = FontWeight.Normal,
-                color = Color(0xFFA8ADB7),
+                color = FrenchGray,
 
                 letterSpacing = 0.5.sp,
             )
@@ -115,7 +118,7 @@ fun CommentBlocksPreview() {
                 )
                 if (index < comments.lastIndex) {
                     Divider(
-                        color = Color(0x11FFFFFF),
+                        color = HorizontalLineColor,
                         thickness = 1.dp,
                         modifier = Modifier.padding(
                             start = 32.dp,
