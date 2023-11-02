@@ -38,7 +38,7 @@ fun CommentBlock(
     comment: Comment,
     modifier: Modifier = Modifier
 ) {
-    Column (modifier = modifier) {
+    Column(modifier = modifier) {
         Row {
             Image(
                 painter = painterResource(id = comment.avatar),
@@ -98,12 +98,14 @@ fun CommentBlocksPreview() {
                 avatar = R.drawable.avatar_1,
                 name = "Auguste Conte",
                 date = "February 14, 2019",
-                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"),
+                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"
+            ),
             Comment(
                 avatar = R.drawable.avatar_2,
                 name = "Jang Marcelino",
                 date = "February 14, 2019",
-                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”")
+                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"
+            )
         )
         LazyColumn {
             itemsIndexed(comments) { index, item ->

@@ -9,5 +9,5 @@
         app:font="@font/sk_modernist_regular"
         app:fontStyle="normal"
         app:fontWeight="400"
-        tools:ignore="UnusedAttribute"/>
+        tools:ignore="UnusedAttribute" />
 </font-family>

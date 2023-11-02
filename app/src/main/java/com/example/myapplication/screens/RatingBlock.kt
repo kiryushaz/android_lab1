@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,7 +30,7 @@ fun RatingBlock(
     reviewsCount: String,
     modifier: Modifier = Modifier
 ) {
-    Row (modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
+    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         Text(
             text = rating.toString(),
             style = TextStyle(
@@ -53,7 +54,7 @@ fun RatingBlock(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "$reviewsCount Reviews",
+                text = stringResource(id = R.string.reviews_count, reviewsCount),
                 style = TextStyle(
                     fontSize = 12.sp,
                     fontFamily = SkModernist,

@@ -38,11 +38,10 @@ fun ImageRow(
         contentPadding = contentPadding,
         modifier = modifier
     ) {
-        itemsIndexed(items) {
-            index, item ->
-            Box (contentAlignment = Alignment.Center,
+        itemsIndexed(items) { index, item ->
+            Box(contentAlignment = Alignment.Center,
                 modifier = Modifier.clickable {
-                    Toast.makeText(context, "watching item ${index+1}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "watching item ${index + 1}", Toast.LENGTH_LONG).show()
                 }) {
                 Image(
                     painter = painterResource(id = item),
@@ -51,11 +50,13 @@ fun ImageRow(
                         .height(135.dp)
                         .clip(RoundedCornerShape(16.dp))
                 )
-                Box (modifier = Modifier
-                    .size(48.dp)
-                    .clip(CircleShape)
-                    .background(CirclePlayColor),
-                    contentAlignment = Alignment.Center) {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(CircleShape)
+                        .background(CirclePlayColor),
+                    contentAlignment = Alignment.Center
+                ) {
                     Image(
                         painter = painterResource(id = R.drawable.baseline_play_arrow_24),
                         contentDescription = "playVideo",
@@ -70,10 +71,12 @@ fun ImageRow(
 @Preview(showBackground = true)
 @Composable
 fun ImageRowPreview() {
-    ImageRow(items = listOf(
-        R.drawable.bg_video_preview1,
-        R.drawable.bg_video_preview2
-    ),
+    ImageRow(
+        items = listOf(
+            R.drawable.bg_video_preview1,
+            R.drawable.bg_video_preview2
+        ),
         modifier = Modifier.padding(top = 16.dp, bottom = 16.dp),
-        contentPadding = PaddingValues(start = 24.dp, end = 24.dp))
+        contentPadding = PaddingValues(start = 24.dp, end = 24.dp)
+    )
 }

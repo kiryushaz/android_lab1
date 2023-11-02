@@ -37,8 +37,8 @@ import com.example.myapplication.ui.theme.SkModernist
 fun MainScreen() {
     val context = LocalContext.current
     val lazyListState = rememberLazyListState()
-    
-    LazyColumn (
+
+    LazyColumn(
         state = lazyListState,
         modifier = Modifier.fillMaxSize()
     ) {
@@ -46,7 +46,7 @@ fun MainScreen() {
             ScreenHeader(
                 imgHeader = R.drawable.bg_header,
                 imgLogo = R.drawable.dota,
-                appName = "DoTA 2"
+                appName = stringResource(id = R.string.dota)
             )
         }
         item {
@@ -57,8 +57,8 @@ fun MainScreen() {
         }
         item {
             Text(
-                text = "Dota 2 is a multiplayer online battle arena (MOBA) game which has two teams of five players compete to collectively destroy a large structure defended by the opposing team known as the \"Ancient\", whilst defending their own.",
-                style = TextStyle(
+                    text = stringResource(id = R.string.description),
+                    style = TextStyle(
                     fontSize = 12.sp,
                     lineHeight = 19.sp,
                     fontFamily = SkModernist,
@@ -69,11 +69,13 @@ fun MainScreen() {
             )
         }
         item {
-            ImageRow(items = listOf(
-                R.drawable.bg_video_preview1,
-                R.drawable.bg_video_preview2
-            ),
-                contentPadding = PaddingValues(start = 24.dp, end = 24.dp))
+            ImageRow(
+                items = listOf(
+                    R.drawable.bg_video_preview1,
+                    R.drawable.bg_video_preview2
+                ),
+                contentPadding = PaddingValues(start = 24.dp, end = 24.dp)
+            )
         }
         item {
             Text(
@@ -94,24 +96,28 @@ fun MainScreen() {
             )
         }
         item {
-            RatingBlock(rating = 4.9f, reviewsCount = "70M",
+            RatingBlock(
+                rating = 4.9f, reviewsCount = "70M",
                 modifier = Modifier.padding(
                     start = 24.dp,
                     end = 24.dp,
                     bottom = 12.dp
-                ))
+                )
+            )
         }
         val comments = listOf(
             Comment(
                 avatar = R.drawable.avatar_1,
                 name = "Auguste Conte",
                 date = "February 14, 2019",
-                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"),
+                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"
+            ),
             Comment(
                 avatar = R.drawable.avatar_2,
                 name = "Jang Marcelino",
                 date = "February 14, 2019",
-                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”")
+                text = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"
+            )
         )
         itemsIndexed(comments) { index, item ->
             CommentBlock(
