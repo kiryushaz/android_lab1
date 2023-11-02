@@ -34,6 +34,7 @@ import com.example.myapplication.R
 import com.example.myapplication.ui.theme.Background
 import com.example.myapplication.ui.theme.LogoBorder
 import com.example.myapplication.ui.theme.SkModernist
+import com.gowtham.ratingbar.RatingBar
 
 @Composable
 fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
@@ -41,7 +42,9 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
         Image(
             painter = painterResource(id = imgHeader),
             contentDescription = "bg_header",
-            modifier = Modifier.fillMaxWidth().height(360.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(360.dp),
             contentScale = ContentScale.Crop,
         )
         Row(modifier = Modifier.padding(start = 24.dp)) {
@@ -79,9 +82,14 @@ fun ScreenHeader(imgHeader: Int, imgLogo: Int, appName: String) {
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Image(
-                        painterResource(id = R.drawable.rating),
-                        "rating"
+                    RatingBar(
+                        value = 5.0f,
+                        size = 12.dp,
+                        spaceBetween = 2.dp,
+                        painterEmpty = painterResource(id = R.drawable.star_background),
+                        painterFilled = painterResource(id = R.drawable.star_foreground),
+                        onValueChange = {},
+                        onRatingChanged = {}
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(

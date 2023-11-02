@@ -1,6 +1,5 @@
 package com.example.myapplication.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 import com.example.myapplication.ui.theme.Background
 import com.example.myapplication.ui.theme.SkModernist
+import com.gowtham.ratingbar.RatingBar
 
 @Composable
 fun RatingBlock(
@@ -41,9 +41,14 @@ fun RatingBlock(
         Spacer(modifier = Modifier.width(16.dp))
         Column {
             Spacer(modifier = Modifier.height(8.dp))
-            Image(
-                painterResource(id = R.drawable.rating),
-                "rating"
+            RatingBar(
+                value = 4.5f,
+                size = 12.dp,
+                spaceBetween = 2.dp,
+                painterEmpty = painterResource(id = R.drawable.star_background),
+                painterFilled = painterResource(id = R.drawable.star_foreground),
+                onValueChange = {},
+                onRatingChanged = {}
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
