@@ -7,7 +7,7 @@
 
 Чтобы открыть проект в Android Studio, необходимо скачать репозиторий:
 ```git
-git clone https://github.com/kiryushaz/android_lab1.git MyApplication --branch dev
+git clone https://github.com/kiryushaz/effective_android.git
 ```
 И убедиться в работоспособности приложения
 
